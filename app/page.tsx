@@ -1,7 +1,7 @@
-import Image from "next/image";
+import Post from "@/components/Post";
 
 export default function Home() {
   return (
-    <div>Hello</div>
+      <Post/>
   );
 }
