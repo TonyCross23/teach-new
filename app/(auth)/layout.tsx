@@ -6,7 +6,7 @@ interface AuthProps {
 
 const layout: FC<AuthProps> = ({children}) => {
   return (
-    <div className=" container mt-20 justify-center items-center w-[500px] bg-slate-100 p-10 rounded-md">
+    <div className=" container mt-40 justify-center items-center w-[500px] bg-slate-100 p-10 rounded-md">
       {children}
     </div>
   )
