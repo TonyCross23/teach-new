@@ -1,10 +1,13 @@
 import GithubProvider from 'next-auth/providers/github';
 import { AuthOptions } from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
+import { PrismaAdapter } from "@next-auth/prisma-adapter"
+import { db } from './db';
 
 
 
 export const authOptions: AuthOptions = {
+  adapter: PrismaAdapter(db),
   secret:process.env.NEXTAUTH_SECRET,
   pages: {
     signIn: "/sign-in",

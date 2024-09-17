@@ -1,4 +1,5 @@
 import {
+  ChartColumnStacked,
   Plus,
   User,
 } from "lucide-react"
@@ -17,7 +18,6 @@ import { getServerSession } from "next-auth"
 import Image from "next/image"
 import NavLogout from "./NavLogout"
 import Link from "next/link"
-import { Button } from "./ui/button"
 
 const DropDownProfile = async () => {
   const session = await getServerSession(authOptions)
@@ -41,9 +41,15 @@ const DropDownProfile = async () => {
         <span>Profile</span>
       </DropdownMenuItem>
       <DropdownMenuItem>
-        <Link href={"/create"} className="flex ">
+        <Link href={"/create/post"} className="flex ">
           <Plus size={18} strokeWidth={1.5} className="mr-2 h-4 w-4 mt-1"/>
           <span className='mt-1'>Create post</span>
+        </Link>
+      </DropdownMenuItem>
+      <DropdownMenuItem>
+        <Link href={"/create/category"} className="flex ">
+          <ChartColumnStacked size={18} strokeWidth={1.5} className="mr-2 h-4 w-4 mt-1"/>
+          <span className='mt-1'>Create category</span>
         </Link>
       </DropdownMenuItem>
     </DropdownMenuGroup>
