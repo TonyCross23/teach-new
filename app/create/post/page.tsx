@@ -8,7 +8,7 @@ const page = async () => {
 
   if(session?.user) {
     return (
-      <div className='container mt-36 py-6 bg-gray-200 rounded-md w-[850px] items-center justify-center'>
+      <div className='container mt-36 py-6 bg-gray-200 dark:bg-black dark:border dark:border-gray-700 rounded-md w-[850px] items-center justify-center'>
         <CreatePost/>
       </div>
     )

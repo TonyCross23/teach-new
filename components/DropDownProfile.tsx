@@ -40,12 +40,14 @@ const DropDownProfile = async () => {
         <User className="mr-2 h-4 w-4" />
         <span>Profile</span>
       </DropdownMenuItem>
+      <DropdownMenuSeparator />
       <DropdownMenuItem>
         <Link href={"/create/post"} className="flex ">
           <Plus size={18} strokeWidth={1.5} className="mr-2 h-4 w-4 mt-1"/>
           <span className='mt-1'>Create post</span>
         </Link>
       </DropdownMenuItem>
+      <DropdownMenuSeparator />
       <DropdownMenuItem>
         <Link href={"/create/category"} className="flex ">
           <ChartColumnStacked size={18} strokeWidth={1.5} className="mr-2 h-4 w-4 mt-1"/>

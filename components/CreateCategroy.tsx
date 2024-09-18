@@ -36,7 +36,7 @@ const CreateCateogry = () => {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        name: values.name
+        catName: values.name
       })
     })
 

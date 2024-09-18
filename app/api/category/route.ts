@@ -2,44 +2,44 @@ import { db } from "@/lib/db";
 import { NextResponse } from "next/server";
 import * as z from 'zod';
 
-// Schema validation for category
+// Define the schema for validation
 const categorySchema = z.object({
-  catName: z.string().min(1, "Category name is required").max(100),
+  name: z.string().min(1, "Category name is required").max(100, "Category name must be less than 100 characters"),
 });
 
 export async function POST(req: Request) {
   try {
+    // Parse and validate the request body
     const body = await req.json();
+    
+    // Log the received body for debugging purposes
+    console.log("Received body:", body);
 
-    // Validate the request body
-    const { catName } = categorySchema.parse(body);
+    // Validate against schema
+    const { name } = categorySchema.parse(body);
 
-    // Check if the category catName already exists
+    // Check if the category already exists
     const existingCategory = await db.category.findFirst({
-      where: { catName },
+      where: { catName: name },
     });
 
     if (existingCategory) {
-      return NextResponse.json(
-        { message: "Category name already exists" },
-        { status: 409 }
-      );
+      return NextResponse.json({ message: "Category name already exists" }, { status: 409 });
     }
 
     // Create a new category
     const newCategory = await db.category.create({
-      data: { name },
+      data: { catName: name },
     });
 
-    return NextResponse.json(
-      { name: newCategory, message: "New category created successfully" },
-      { status: 201 }
-    );
-  } catch (error: unknown) {
-    // Improved error handling to provide more details
-    return NextResponse.json(
-      { message: "Something went wrong!", error: error.message },
-      { status: 500 }
-    );
+    return NextResponse.json({ name: newCategory, message: "New category created successfully" }, { status: 201 });
+  } catch (error) {
+    // Handle validation errors specifically
+    if (error instanceof z.ZodError) {
+      return NextResponse.json({ message: "Validation error", errors: error.errors }, { status: 400 });
+    }
+
+    // Handle other errors
+    return NextResponse.json({ message: "Something went wrong!", error: error.message }, { status: 500 });
   }
 }

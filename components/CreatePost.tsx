@@ -1,5 +1,5 @@
 "use client"
- 
+import * as React from "react"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
@@ -129,7 +129,7 @@ const CreatePost = () => {
       />
      
       </div>
-      <Button className="w-full" type="submit">Create post</Button>
+      <Button className="w-full dark:bg-black dark:bg-transparent dark:text-white dark:border dark:border-gray-700" type="submit">Create post</Button>
     </form>
   </Form>
   )

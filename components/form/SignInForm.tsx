@@ -67,7 +67,7 @@ const SignInForm = () => {
           </FormItem>
         )}
       />
-      <Button className="w-full" type="submit">Login</Button>
+      <Button className="w-full dark:border dark:border-gray-700 dark:text-white dark:bg-black" type="submit">Login</Button>
     </form>
     <div className="mx-auto my-4 flex w-full items-center justify-evenly before:mr-4 before:block
                       before:h-px before:flex-grow before:bg-stone-400 after:ml-4 after:block after:h-px
@@ -86,13 +86,13 @@ const SignInForm = () => {
           Sign in with Google
         </Google>
         <GitHub>
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28px" height="28px" fill="#ffffff" className="me-4">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28px" height="28px" fill="currentColor" className="me-4 fill-current text-white dark:text-black">
             <path d="M12 0.297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385 0.6 0.113 0.82-0.258 0.82-0.577 0-0.285-0.01-1.04-0.015-2.04-3.338 0.725-4.042-1.61-4.042-1.61-0.546-1.387-1.333-1.757-1.333-1.757-1.089-0.744 0.083-0.729 0.083-0.729 1.205 0.084 1.839 1.237 1.839 1.237 1.07 1.835 2.809 1.305 3.495 0.998 0.108-0.775 0.418-1.305 0.76-1.605-2.665-0.305-5.466-1.335-5.466-5.93 0-1.31 0.469-2.382 1.237-3.22-0.124-0.303-0.535-1.523 0.117-3.176 0 0 1.008-0.322 3.301 1.23 0.957-0.266 1.98-0.398 3-0.403 1.02 0.005 2.043 0.137 3 0.403 2.291-1.552 3.297-1.23 3.297-1.23 0.654 1.653 0.243 2.873 0.119 3.176 0.771 0.838 1.236 1.91 1.236 3.22 0 4.61-2.804 5.623-5.475 5.92 0.43 0.372 0.814 1.102 0.814 2.222 0 1.606-0.015 2.896-0.015 3.286 0 0.322 0.218 0.694 0.825 0.576 4.765-1.587 8.198-6.082 8.198-11.383 0-6.627-5.373-12-12-12z"/>
           </svg>
           Sign in with GitHub
         </GitHub>
       </div>
-      <p className="text-center text-sm text-gray-800 mt-2">
+      <p className="text-center text-sm text-gray-800 dark:text-white mt-2">
         If you have already account , please&nbsp;
         <Link href="/sign-up" className="text-blue-500 hover:underline"> Sign up</Link>
       </p>
